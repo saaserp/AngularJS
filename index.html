@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+
+</head>
+<body style="padding:50px">
+<div ng-init= "albums =
+[
+	{
+		name:'name1',
+		title:'weekend in title1',
+		date:'2016-10-10'
+	},
+	{
+		name:'name2',
+		title:'this is my title2',
+		date:'2016-10-23'
+	},
+	{
+		name:'name3',
+		title:'this is my title3',
+		date:'2016-9-10'
+	},
+	{
+		name:'name4',
+		title:'this is my title4',
+		date:'2016-8-10'
+	}
+]"
+>
+<p>
+
+there are {{ albums.length }} albums to view:
+
+</p>
+<ul>
+<li ng-repeat="album in albums">
+	<ul>
+	<li ng-repeat="(key,value) in album">
+	<strong> {{ key }} </strong>={{value}}
+	</li>
+	</ul>
+   
+</li>
+</ul>
+</div>
+</body>
+</html>
