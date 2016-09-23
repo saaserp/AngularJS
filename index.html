@@ -5,7 +5,14 @@
 	<link rel="stylesheet" href="css/bootstrap.css"/>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
-
+<style type="text/css">
+.even{
+color:red;
+}
+.odd{
+color:blue;
+}
+</style>
 </head>
 <body style="padding:50px">
 <div ng-init= "albums =
@@ -38,10 +45,11 @@ there are {{ albums.length }} albums to view:
 
 </p>
 <ul>
-<li ng-repeat="album in albums">
+<p><input type="text" ng-model="searchFor" size="30"/> {{searchFor}}</p>
+<li ng-repeat="album in albums"  >
 	<ul>
-	<li ng-repeat="(key,value) in album">
-	<strong> {{ key }} </strong>={{value}}
+		{{$index}}{{$even}}	<li ng-repeat="(key,value) in albums | filter:searchFor | orderBy:'date' " ng-class="{even:$even,odd:$odd}">
+	{{ $index+1}}-<strong> {{ key }} </strong>={{value}}
 	</li>
 	</ul>
    
