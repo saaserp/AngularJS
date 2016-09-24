@@ -46,14 +46,19 @@ there are {{ albums.length }} albums to view:
 </p>
 <ul>
 <p><input type="text" ng-model="searchFor" size="30"/> {{searchFor}}</p>
-<li ng-repeat="album in albums"  >
-	<ul>
-		{{$index}}{{$even}}	<li ng-repeat="(key,value) in albums | filter:searchFor | orderBy:'date' " ng-class="{even:$even,odd:$odd}">
-	{{ $index+1}}-<strong> {{ key }} </strong>={{value}}
-	</li>
-	</ul>
-   
-</li>
+
+
+	<div class="panel panel-primary" ng-repeat="album in albums "
+		 style="float:left ;width:250px;margin-right:10px"
+	>
+		<div class="panel-heading">
+			<div style="float: right;min-height:200px">({{album.date}})</div>
+			{{album.name}}
+			</div>
+		<p>
+			{{album.title}}
+		</p>
+	</div>
 </ul>
 </div>
 </body>
